@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import { MdModeEditOutline } from "react-icons/md";
-import "./Todo.css";
+import "../styles/Todo.css";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import Layout from "./Layout";
 import { useNavigate } from "react-router-dom";
+
+
 
 function Todo() {
   const [tasks, setTasks] = useState(
@@ -14,6 +16,9 @@ function Todo() {
   const [editIndex, seteditIndex] = useState(null);
   const [editText, seteditText] = useState("");
   const navigate = useNavigate();
+
+
+
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));

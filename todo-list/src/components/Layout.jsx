@@ -1,7 +1,14 @@
-import "./Todo.css";
+import "../styles/Todo.css";
 import { useState, useEffect } from "react";
+import { useSearchParams } from 'react-router-dom';
+
+
 
 function Layout({ children }) {
+
+  const [searchParams] = useSearchParams();
+  const username = searchParams.get('username');
+
   const [mode, setMode] = useState("#f2f2f2");
 
   useEffect(() => {
@@ -15,7 +22,7 @@ function Layout({ children }) {
   return (
     <div className="app-container">
       <div className="todo-head">
-        <h1>TODO LIST</h1>
+        {username?<h1>{`${username.toUpperCase()}'S `}TODO LIST</h1>:<h1>TODO LIST</h1>}
         <label className="ui-switch">
           <input type="checkbox" onClick={toggleMode} />
           <div className="slider">

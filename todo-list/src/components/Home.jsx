@@ -1,17 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import Layout from "./Layout";
-import "./Todo.css";
+import "../styles/Todo.css";
 import { useRef, useState } from "react";
 
 function Home() {
-  const [name, setName] = useState("");
   const [error, setError] = useState("");
   const varname = useRef("");
   const navigate = useNavigate();
 
   function Login() {
     if (/^[a-z0-9]+$/.test(varname.current.value)) {
-      setName(varname.current.value);
+      navigate(`/todo?username=${varname.current.value}`)
     } else {
       setError("name should only be consist of lowercase letters and numbers");
     }

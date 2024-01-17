@@ -6,8 +6,6 @@ import { RiLogoutBoxFill } from "react-icons/ri";
 import Layout from "./Layout";
 import { useNavigate } from "react-router-dom";
 
-
-
 function Todo() {
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem("tasks")) || []
@@ -16,9 +14,6 @@ function Todo() {
   const [editIndex, seteditIndex] = useState(null);
   const [editText, seteditText] = useState("");
   const navigate = useNavigate();
-
-
-
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
